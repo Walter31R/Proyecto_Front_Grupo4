@@ -1,0 +1,34 @@
+<div>
+    <form>
+
+
+        <div>
+            <label>nombre:</label>
+            <input type="text" [(ngModel)]="nuevaTareaDTO.nombre" name="nombre" required="">
+        </div>
+
+        <div>
+            <label>Fecha vencimiento:</label>
+            <input type="date" [(ngModel)]="nuevaTareaDTO.fechaVencimiento" name="Fecha vencimiento" required="">
+        </div>
+
+        <div>
+            <label>Prioridad:</label>
+            <select [(ngModel)]="nuevaTareaDTO.prioridad" name="Prioridad">
+                <option value="" disabled selected>Seleccione un Color:</option>
+                <option value="BAJA">BAJA</option>
+                <option value="MEDIA">MEDIA</option>
+                <option value="ALTA">ALTA</option>
+                <option value="URGENTE">URGENTE</option>
+            </select>
+        </div>
+
+        <div *ngIf="mensaje">
+            <p>Bienvenido: {{mensaje}}</p>
+        </div>
+
+        <button (click)="agregarTarea()">guardar</button>
+
+
+    </form>
+</div>

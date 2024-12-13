@@ -1,0 +1,95 @@
+/* Contenedor del formulario */
+div form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo del mensaje de bienvenida */
+  div form p {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Contenedores de los campos */
+  div form > div {
+    margin-bottom: 15px;
+  }
+  
+  /* Etiquetas */
+  div form label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  /* Campos de entrada */
+  div form input[type="text"],
+  div form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  div form input[type="text"]:focus,
+  div form select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Botón */
+  div form button {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  div form button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  div form button:active {
+    background-color: #1e7e34;
+    transform: scale(0.98);
+  }
+  
+  /* Ajuste para dispositivos móviles */
+  @media (max-width: 600px) {
+    div form {
+      padding: 15px;
+    }
+  
+    div form label {
+      font-size: 14px;
+    }
+  
+    div form input[type="text"],
+    div form select {
+      font-size: 14px;
+    }
+  
+    div form button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  

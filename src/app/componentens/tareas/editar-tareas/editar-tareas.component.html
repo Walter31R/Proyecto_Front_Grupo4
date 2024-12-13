@@ -1,0 +1,45 @@
+<div class="container col-md-6">
+    <div class="card-header">
+        <h3>Actualizar Tarea</h3>
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="actualizarTarea()">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" [(ngModel)]="tareasNueva.nombre" name="nombre" class="form-control"
+                    placeholder="Ingrese el nombre de la tarea" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prioridad">Prioridad:</label>
+                <select [(ngModel)]="tareasNueva.prioridad" name="prioridad" class="form-control" required>
+                    <option value="" disabled selected>Seleccione una Prioridad</option>
+                    <option value="BAJA">BAJA</option>
+                    <option value="MEDIA">MEDIA</option>
+                    <option value="ALTA">ALTA</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="estado">Estado:</label>
+                <select [(ngModel)]="tareasNueva.estado" name="estado" class="form-control" required>
+                    <option value="" disabled selected>Seleccione un estado</option>
+                    <option value="TERMINADO">TERMINADO</option>
+                    <option value="NOTERMINADO">NOTERMINADO</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaVencimiento">Fecha de Vencimiento:</label>
+                <input type="date" [(ngModel)]="tareasNueva.fechaVencimiento" name="fechaVencimiento"
+                    class="form-control" required>
+            </div>
+
+            <br>
+
+            <div *ngIf="mensaje" class="alert alert-info">{{ mensaje }}</div>
+
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </form>
+    </div>
+</div>

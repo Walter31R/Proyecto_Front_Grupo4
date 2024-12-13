@@ -1,0 +1,38 @@
+<div>
+    <h1>Lista de Proyectos</h1>
+    <h1 *ngIf="mensaje">
+        {{mensaje}}
+    </h1>
+    <button (click)="crearProyectos()">crear Proyecto</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Color</th>
+                <th>Usuarios</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of proyectos">
+                <td>{{ p.id }}</td>
+                <td>{{ p.nombre }}</td>
+                <td>{{p.color}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let u of p.usuarios">{{ u.nombre }}</li>
+                    </ul>
+                </td>
+                <td>
+                    <button (click)="crearTareas(p)">Crear Tarea</button>
+                    <button (click)="actualizarProyecto(p)">Editar Proyecto</button>
+                    <!--<button (click)="eliminarProyecto(p)">Delete Proyecto</button>-->
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <router-outlet></router-outlet>-->
