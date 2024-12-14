@@ -1,0 +1,32 @@
+<div class="tarea-list-container">
+    <h1>Lista de Tareas</h1>
+  
+    <table class="tarea-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Fecha Vencimiento</th>
+                <th>Prioridad</th>
+                <th>Nombre de Proyecto</th>
+                <th>estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of tareasLista">
+                <td>{{ t.id }}</td>
+                <td>{{ t.nombre }}</td>
+                <td>{{ t.fechaVencimiento | date: 'yyyy-MM-dd' }}</td> <!-- Cambiado a solo mostrar la fecha -->
+                <td>{{ t.prioridad }}</td>
+                <td>{{ t.proyectoNombre }}</td>
+                <td>{{ t.estado }}</td>
+                <td>
+                    <button class="btn-editar" (click)="actualizarTarea(t)">Editar Tareas</button>
+                    <button class="btn-eliminar" (click)="eliminarTarea(t)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

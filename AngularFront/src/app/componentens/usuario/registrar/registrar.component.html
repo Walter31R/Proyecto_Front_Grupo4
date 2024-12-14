@@ -1,0 +1,67 @@
+<div>
+    <h2>Registrar Usuario</h2>
+    <form (ngSubmit)="registrarUsuario()">
+
+        <div>
+            <label>Username</label>
+            <input type="text" id="Username" name="Username" [(ngModel)]="userDTO.username" [value]="userNameSuggestion"
+                (focus)="onUsernameFocus()" (blur)="onUsernameBlur()" pattern="^[^\s]*$" required #username ="ngModel" />
+        </div>
+
+        <!--Sugerencia de username-->
+        <div *ngIf="userDTO.nombreCliente" class="suggestion">
+            <p>Sugerencia de Nombre de Usuario: {{ userNameSuggestion }}</p>
+        </div>
+        <div *ngIf="username.invalid && username.touched">
+            <small *ngIf="username.errors?.['pattern']">Nombre no puede contener espacios</small>
+        </div>
+
+        <div>
+            <label>password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="userDTO.password" required />
+        </div>
+
+        <!--Sugerencia de contraseña-->
+        <div *ngIf="passwordSuggestion" class="suggestion">
+            <p>Sugerencia de Contraseña: {{ passwordSuggestion }}</p>
+        </div>
+
+        <div>
+            <label>nombre Cliente</label>
+            <input type="text" id="nombreCliente" name="nombreCliente" [(ngModel)]="userDTO.nombreCliente"
+                (input)="generarSugerencias()" required #nombreCliente="ngModel" pattern="^[A-Za-zàèìòùÀÈÌÒÙñÑ\s]+$" />
+
+            <div *ngIf="nombreCliente.invalid && nombreCliente.touched">
+                <small *ngIf="nombreCliente.errors?.['pattern']">Nombre solo puede contener letras </small>
+            </div>
+        </div>
+
+        <div>
+            <label>DNI</label>
+            <input id="DNI" name="DNI" [(ngModel)]="userDTO.dni" required pattern="^[0-9]{8}$" #dni="ngModel" />
+            <div *ngIf="dni.invalid && dni.touched">
+                <small *ngIf="dni.errors?.['pattern']">El DNI debe contener exactamente 8 dígitos numéricos.</small>
+            </div>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input id="email" name="email" [(ngModel)]="userDTO.email" required #email="ngModel"
+                pattern="^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook)\.com$" />
+            <div *ngIf="email.touched && email.invalid">
+                <small *ngIf="email.errors?.['pattern']">El email debe tener la terminación correcta (gmail, hotmail,
+                    outlook).</small>
+                <small *ngIf="email.errors?.['required']">El email es obligatorio.</small>
+            </div>
+        </div>
+
+
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <div *ngIf="mensaje">
+        {{ mensaje }}
+    </div>
+
+
+</div>

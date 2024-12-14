@@ -1,0 +1,76 @@
+/* Contenedor principal de la barra lateral */
+header {
+    position: fixed;
+    top: 0;
+    right: 0; /* Cambiar de izquierda a derecha */
+    height: 100%;
+    width: 250px;
+    background-color: #2c3e50;
+    padding: 20px 10px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1); /* Sombra invertida */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+/* Navegación */
+nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+/* Lista de navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 15px;
+}
+
+/* Enlaces */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #34495e;
+}
+
+/* Botón de logout */
+nav ul li button {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+nav ul li button:active {
+    background-color: #a93226;
+    transform: scale(0.98);
+}
+
+/* Para ajustar el contenido principal al lado de la barra */
+main {
+    margin-right: 250px; /* Ajustar el margen al ancho de la barra */
+    padding: 20px;
+}
