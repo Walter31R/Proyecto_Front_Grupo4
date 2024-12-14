@@ -1,0 +1,20 @@
+<div>
+    <h2>Inicio de sesion</h2>
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+        <div>
+            <label>Nombre de usuario</label>
+            <input type="text" id="username" [(ngModel)]="userDTO.username" name="username" required>
+        </div>
+
+        <div>
+            <label>Contraseña de usuario</label>
+            <input type="password" id="password" name="password" [(ngModel)]="userDTO.password" required="">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Logearse</button>
+    </form>
+
+    <div *ngIf="mensajeError">
+        {{mensajeError}}
+    </div>
+</div>

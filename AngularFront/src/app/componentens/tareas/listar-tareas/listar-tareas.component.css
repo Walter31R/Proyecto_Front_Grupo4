@@ -1,0 +1,95 @@
+/* Contenedor principal */
+.tarea-list-container {
+    margin: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4CAF50; /* Color verde */
+}
+
+/* Estilos para el botón de crear tarea */
+.btn-crear {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-crear:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para la tabla */
+.tarea-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tarea-table th, .tarea-table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.tarea-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tarea-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tarea-table tr:hover {
+    background-color: #ddd;
+}
+
+.tarea-table td button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para botones de acciones */
+.btn-editar {
+    background-color: #FFC107;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #e0a800;
+}
+
+.btn-eliminar {
+    background-color: #F44336;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #d32f2f;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .tarea-table {
+        font-size: 0.9em;
+    }
+
+    .btn-crear {
+        width: 100%;
+    }
+}

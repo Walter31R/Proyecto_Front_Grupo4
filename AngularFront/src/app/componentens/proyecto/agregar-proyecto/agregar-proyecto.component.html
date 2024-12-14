@@ -1,0 +1,26 @@
+<div>
+    <form>
+       
+        <div>
+            <label>nombre:</label>
+            <input type="text" [(ngModel)]="proyectoNuevo.nombre" name="nombre" required="">
+        </div>
+
+        <div>
+            <label>Colores:</label>
+            <select [(ngModel)]="proyectoNuevo.colorId" name="colorId">
+                <option value="" disabled selected>Seleccione un Color:</option>
+                <option value="1">ROJO</option>
+                <option value="2">VERDE</option>
+                <option value="3">AMARILLO</option>
+                <option value="4">AZUL</option>
+                <option value="5">CELESTE</option>
+                <option value="6">TURQUESA</option>
+            </select>
+        </div>
+
+        <button (click)="guardar()">guardar</button>
+
+        <p>{{mensaje}}</p>
+    </form>
+</div>

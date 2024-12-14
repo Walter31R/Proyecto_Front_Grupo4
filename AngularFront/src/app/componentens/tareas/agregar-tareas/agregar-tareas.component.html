@@ -1,0 +1,34 @@
+<div>
+    <form>
+        <div>
+            <label>Nombres:</label>
+            <input type="text" [(ngModel)]="tareasNueva.nombre" name="nombre" required="">
+        </div>
+        <div>
+            <label>Fecha:</label>
+            <input type="date" [(ngModel)]="tareasNueva.fechaVencimiento" name="nombre" required="">
+        </div>
+        <div>
+            <label>prioridad:</label>
+            <select [(ngModel)]="tareasNueva.prioridad" name="prioridad">
+                <option value="" disabled selected>Seleccione una Prioridad:</option>
+                <option value="BAJA">BAJA</option>
+                <option value="MEDIA">MEDIA</option>
+                <option value="ALTA">ALTA</option>
+            </select>
+        </div>
+        
+        <div>
+            <label>estado:</label>
+            <select [(ngModel)]="tareasNueva.estado" name="estado">
+                <option value="" disabled selected>Seleccione un estado:</option>
+                <option value="TERMINADO">TERMINADO </option>
+                <option value="NOTERMINADO">NOTERMINADO</option>
+            </select>
+        </div>
+
+        <button (click)="guardar()">guardar</button>
+
+        <p>{{mensaje}}</p>
+    </form>
+</div>
