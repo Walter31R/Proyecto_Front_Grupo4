@@ -1,0 +1,21 @@
+<div>
+    <form>
+        <div>
+            <label>Correo:</label>
+            <input type="text" [(ngModel)]="correo" name="correo"  placeholder="ejemplo@hotmail.com"
+                #correoCtrl="ngModel" pattern="^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook)\.com$" required>
+        </div>
+
+        <div *ngIf="correoCtrl.touched && correoCtrl.invalid">
+            <small *ngIf="correoCtrl.errors?.['pattern']">El email debe tener la terminación correcta (gmail, hotmail,
+                outlook).</small>
+            <small *ngIf="correoCtrl.errors?.['required']">El email es obligatorio.</small>
+        </div>
+
+        <div *ngIf="mensaje">
+            <p>{{mensaje}}</p>
+        </div>
+
+        <button (click)="agregarUsuario()">Agregar</button>
+    </form>
+</div>

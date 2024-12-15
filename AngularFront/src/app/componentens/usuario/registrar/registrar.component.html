@@ -28,8 +28,14 @@
 
         <div>
             <label>nombre Cliente</label>
-            <input type="text" id="nombreCliente" name="nombreCliente" [(ngModel)]="userDTO.nombreCliente"
-                (input)="generarSugerencias()" required #nombreCliente="ngModel" pattern="^[A-Za-zàèìòùÀÈÌÒÙñÑ\s]+$" />
+            <input type="text" id="nombreCliente" name="nombreCliente" 
+
+                [(ngModel)]="userDTO.nombreCliente"
+                (input)="generarSugerencias()"
+                required 
+                
+                #nombreCliente="ngModel" 
+                pattern="^[A-Za-zàèìòùÀÈÌÒÙñÑ\s]+$" />
 
             <div *ngIf="nombreCliente.invalid && nombreCliente.touched">
                 <small *ngIf="nombreCliente.errors?.['pattern']">Nombre solo puede contener letras </small>

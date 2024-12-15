@@ -66,6 +66,12 @@ export class ListarTareasComponent implements OnInit {
     )
   }
 
+  agregarComentario(tarea: TareaResponseDTO): void{
+    const idTarea = localStorage.setItem("idTarea", tarea.id.toString());
+    /**Ruta para agregar comentario */
+    this.router.navigate(['/agregarComentariosTareas']);
+  }
+
 
 
 }

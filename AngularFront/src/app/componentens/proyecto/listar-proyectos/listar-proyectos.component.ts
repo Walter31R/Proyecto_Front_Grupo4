@@ -87,7 +87,17 @@ export class ListarProyectosComponent implements OnInit {
         }
     )
   }
+
+  agregarUsuario(proyectos: ProyectoResponseDTO): void{
+    localStorage.setItem("proyectoId", proyectos.id.toString());
+    /**Ruta para agregar usuario */
+    this.router.navigate(['/agregarUsuarioProyecto']);
+  }
+
+
 }
+
+
 
 
 
