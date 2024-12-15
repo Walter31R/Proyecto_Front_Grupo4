@@ -19,7 +19,6 @@ export class EditarTareasComponent implements OnInit {
   }
 
   idUsuario: number;
-
   id = JSON.parse(localStorage.getItem('idTarea') || '0');
   idProyecto = JSON.parse(localStorage.getItem('proyectoId') || '0');
 

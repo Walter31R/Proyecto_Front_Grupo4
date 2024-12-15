@@ -12,6 +12,8 @@ import { EditarProyectoComponent } from './componentens/proyecto/editar-proyecto
 import { ListarTareasComponent } from './componentens/tareas/listar-tareas/listar-tareas.component';
 import { EditarTareasComponent } from './componentens/tareas/editar-tareas/editar-tareas.component';
 import { AgregarTareasComponent } from './componentens/tareas/agregar-tareas/agregar-tareas.component';
+import { ComentariosTareasComponent } from './componentens/tareas/comentarios-tareas/comentarios-tareas.component';
+import { AgregarUsuarioComponent } from './componentens/proyecto/agregar-usuario/agregar-usuario.component';
 
 export const routes: Routes = [
     { path: 'LoginUsuario', component: LoginComponent },
@@ -21,6 +23,10 @@ export const routes: Routes = [
     
     {path: 'agregarTareas' ,   component:AgregarTareasComponent , canActivate: [AuthGuard]},
     
+    {path: 'agregarComentariosTareas' ,   component:ComentariosTareasComponent , canActivate: [AuthGuard]},
+    {path: 'agregarUsuarioProyecto' ,   component:AgregarUsuarioComponent , canActivate: [AuthGuard]},
+
+
     { path: 'index', component: IndexComponent, canActivate: [AuthGuard] },
     { path: 'editarProyecto', component: EditarProyectoComponent, canActivate: [AuthGuard] },
     { path: 'listarTarea', component: ListarTareasComponent, canActivate: [AuthGuard] },

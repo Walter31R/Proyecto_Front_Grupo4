@@ -9,7 +9,9 @@
                 <th>Fecha Vencimiento</th>
                 <th>Prioridad</th>
                 <th>Nombre de Proyecto</th>
-                <th>estado</th>
+                <th>Estado</th>
+                <th>Usuarios</th>
+                <th>Comentarios</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -21,9 +23,21 @@
                 <td>{{ t.prioridad }}</td>
                 <td>{{ t.proyectoNombre }}</td>
                 <td>{{ t.estado }}</td>
+                <td>{{ t.usuarios }}</td>
+                <td>
+                    <ul *ngFor="let c of t.comentarios">
+                        <li>
+                            {{c.contenido}}
+                        </li>
+                        <li>
+                            {{c.fecha | date: 'yyyy-MM-dd'}}
+                        </li>
+                    </ul>
+                </td>
                 <td>
                     <button class="btn-editar" (click)="actualizarTarea(t)">Editar Tareas</button>
                     <button class="btn-eliminar" (click)="eliminarTarea(t)">Eliminar</button>
+                    <button class="btn-eliminar" (click)="agregarComentario(t)">Agregar Comentario</button>
                 </td>
             </tr>
         </tbody>

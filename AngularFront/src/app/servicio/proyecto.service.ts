@@ -30,41 +30,51 @@ export class ProyectoService {
 
 
   /**------Nuevos metodos------- */
-crearProyecto(proyectoDTO : ProyectoRequestDTO , userE : number): Observable<any>{
-  
-  const url = `${this.url}/crearProyecto?userId=${userE}`;
-  return this.http.post<any>(url , proyectoDTO);
+  crearProyecto(proyectoDTO: ProyectoRequestDTO, userE: number): Observable<any> {
+
+    const url = `${this.url}/crearProyecto?userId=${userE}`;
+    return this.http.post<any>(url, proyectoDTO);
+  }
+
+
+  obtenerProyectoPorId(proyectoId: number, userE: number): Observable<any> {
+
+    const requestBody = {
+      proyectoId: proyectoId,
+      usuario: userE
+    };
+
+    return this.http.get<any>(this.url + "/obtenerPorId" + userE);
+  }
+
+  listarProyectos(idUsuario: number): Observable<any> {
+
+    return this.http.get<any>(this.url + "/usuario/" + idUsuario);
+  }
+
+  actualizarProyecto(proyectoId: number, proyectoDTO: ProyectoRequestDTO, userId: number): Observable<any> {
+    return this.http.put<any>(`${this.url}/actualizarProyecto/${proyectoId}?userId=${userId}`, proyectoDTO);
+  }
+
+
+  eliminarProyecto(proyectoId: number, userId: number): Observable<any> {
+    return this.http.delete<any>(`${this.url}/eliminarProyecto/${proyectoId}?userId=${userId}`);
+  }
+
+
+
+  /**Agregar usuarios a proyectos */
+  /** @PatchMapping("/agregarInvitado/{proyectoId}")
+      public ResponseEntity<Map<String, Object>> agregarInvitado(
+      @PathVariable Long proyectoId,                                                                
+      @RequestParam Long userId,                                                            
+      @RequestParam String invitado
+    )
+*/
+
+agregarUsuariosProyecto(proyectoId: number, userId: number, invitado: string): Observable<any> {
+  return this.http.patch<any>(`${this.url}/agregarInvitado/${proyectoId}?userId=${userId}&invitado=${invitado}`,{});
 }
-
-
-obtenerProyectoPorId(proyectoId : number , userE : number): Observable<any>{
-  
-  const requestBody = {
-    proyectoId: proyectoId,
-    usuario: userE 
-  };
-
-  return this.http.get<any>(this.url + "/obtenerPorId" + userE);
-}
-
-
-
-
-
-listarProyectos(idUsuario : number): Observable<any>{
-
-  return this.http.get<any>(this.url + "/usuario/" + idUsuario);
-}
-
-actualizarProyecto(proyectoId: number, proyectoDTO: ProyectoRequestDTO, userId: number): Observable<any> {
-  return this.http.put<any>(`${this.url}/actualizarProyecto/${proyectoId}?userId=${userId}`, proyectoDTO);
-}
-
-
-eliminarProyecto(proyectoId: number, userId: number): Observable<any> {
-  return this.http.delete<any>(`${this.url}/eliminarProyecto/${proyectoId}?userId=${userId}`);
-}
-
 
 
 
