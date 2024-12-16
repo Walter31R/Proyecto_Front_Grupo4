@@ -1,1 +1,10 @@
-<p>comentarios-tareas works!</p>
+<div>
+    <form>
+        <div>
+            <label>Comentario:</label>
+            <input type="text" [(ngModel)]="comentario.contenido" name="comentario" placeholder="Comentario de ejemplo" height="200px">
+        </div>
+        <button (click)="agregarComentarios()">Agregar</button>
+        <p>{{mensaje}}</p>
+    </form>
+</div>

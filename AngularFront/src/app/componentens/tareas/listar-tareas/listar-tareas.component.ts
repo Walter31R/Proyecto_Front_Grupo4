@@ -57,8 +57,9 @@ export class ListarTareasComponent implements OnInit {
   eliminarTarea(tarea: TareaResponseDTO): void {
     this.tareasService.eliminarTareas(this.idUsuario , tarea.id).subscribe(
       data => {
-        this.tareasLista = data.tarea;
-        console.log("lista: ", data.tarea);
+        //this.tareasLista = data.tarea;
+        console.log("tarea: ", data.message);
+
       },
       error => {
         console.log("error: ", error);
