@@ -52,11 +52,14 @@ export class EditarProyectoComponent implements OnInit {
   private obtenerProyecto(): void {
 
     this.proyectoService.obtenerProyectoPorId(this.idUsuario, this.id).subscribe(
-      proyecto => {
-        this.proyectos = proyecto.proyecto;
-        this.message = proyecto.message;
+      data => {
+        this.proyectos = data.proyecto;
+        this.message = data.message;
+        console.log("Proyecto sin Actualizar : ", this.proyectos);
+        console.log("Id", this.id);
+        console.log("User", this.idUsuario);
       }, error => {
-          console.log("error: ", error)
+          console.log("error al obtener: ", error)
           this.message = error.error?.message;
       }
     )

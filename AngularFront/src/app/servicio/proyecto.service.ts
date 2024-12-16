@@ -36,15 +36,16 @@ export class ProyectoService {
     return this.http.post<any>(url, proyectoDTO);
   }
 
+  /**@GetMapping("/obtenerPorId/{proyectoId}")
+      //@PreAuthorize("hasRole('ADMIN')")
+      public ResponseEntity<Map<String,Object>> obtenerProyectoPorId
+      (@PathVariable Long proyectoId,
+       @RequestParam Long userId) 
+  */
 
   obtenerProyectoPorId(proyectoId: number, userE: number): Observable<any> {
 
-    const requestBody = {
-      proyectoId: proyectoId,
-      usuario: userE
-    };
-
-    return this.http.get<any>(this.url + "/obtenerPorId" + userE);
+    return this.http.get<any>(`${this.url}/obtenerPorId/${proyectoId}?userId=${userE}`);
   }
 
   listarProyectos(idUsuario: number): Observable<any> {
@@ -72,9 +73,9 @@ export class ProyectoService {
     )
 */
 
-agregarUsuariosProyecto(proyectoId: number, userId: number, invitado: string): Observable<any> {
-  return this.http.patch<any>(`${this.url}/agregarInvitado/${proyectoId}?userId=${userId}&invitado=${invitado}`,{});
-}
+  agregarUsuariosProyecto(proyectoId: number, userId: number, invitado: string): Observable<any> {
+    return this.http.patch<any>(`${this.url}/agregarInvitado/${proyectoId}?userId=${userId}&invitado=${invitado}`, {});
+  }
 
 
 
