@@ -15,6 +15,9 @@ import { ProyectoResponseDTO } from '../../../modelos/ProyectoResponseDTO';
 })
 export class ListarProyectosComponent implements OnInit {
 
+
+  nombreUsuario : string = "";
+
   ngOnInit(): void {
     this.obtenerProyectos();
   }
@@ -27,6 +30,10 @@ export class ListarProyectosComponent implements OnInit {
 
     const user = localStorage.getItem("user");
     this.idUsuario = Number(user);
+
+     //nombre del usuario
+     const userName = localStorage.getItem("nombreUsuario");
+     this.nombreUsuario = String(userName);
 
   }
   ColorEnum = ColorEnum;

@@ -14,7 +14,7 @@ import { TareasService } from '../../../servicio/tareas.service';
 })
 export class ListarTareasComponent implements OnInit {
 
-
+   nombreUsuario : string = "";
 
   ngOnInit(): void {
     this.obtenerLista();
@@ -30,6 +30,9 @@ export class ListarTareasComponent implements OnInit {
     const user = localStorage.getItem("user");
     this.idUsuario = Number(user);
 
+    //nombre del usuario
+    const userName = localStorage.getItem("nombreUsuario");
+    this.nombreUsuario = String(userName);
   }
 
 

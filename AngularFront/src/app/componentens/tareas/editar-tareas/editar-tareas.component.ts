@@ -17,7 +17,7 @@ export class EditarTareasComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerTarea();
   }
-
+  nombreUsuario : string = "";
   idUsuario: number;
   id = JSON.parse(localStorage.getItem('idTarea') || '0');
   idProyecto = JSON.parse(localStorage.getItem('proyectoId') || '0');
@@ -35,6 +35,10 @@ export class EditarTareasComponent implements OnInit {
     const user = localStorage.getItem("user");
     this.idUsuario = Number(user);
 
+    //nombre del usuario
+    const userName = localStorage.getItem("nombreUsuario");
+    this.nombreUsuario = String(userName);
+    
     // Obtener proyectoId desde localStorage y asignarlo
     const proyectoId = localStorage.getItem("proyectoId");
     if (proyectoId) {

@@ -37,12 +37,16 @@ export class LoginComponent {
       {
         next: (response) => {
           const username = response.usuarioId; 
+          const nombreUsuario = response.usuarioNombre; 
           if (username) {
             const userIdString = username;
             const userId = Number(userIdString);
+
+            localStorage.setItem('nombreUsuario', nombreUsuario.toString());
             localStorage.setItem('user', userId.toString());
-        
+            
             console.log(localStorage.getItem("user"));
+            console.log(localStorage.getItem("nombreUsuario"));
             this.router.navigate(['/index']);
           } else {
             console.error('No se pudo obtener el usuario desde la respuesta del servidor.');
